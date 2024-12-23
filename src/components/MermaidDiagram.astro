@@ -1,0 +1,18 @@
+---
+interface Props {
+  code: string;
+}
+
+const { code } = Astro.props;
+---
+<div class="mermaid-wrapper">
+  <pre class="mermaid not-prose">
+    {code.trim()}
+  </pre>
+</div>
+
+<style>
+  .mermaid-wrapper {
+    @apply my-8;
+  }
+</style>

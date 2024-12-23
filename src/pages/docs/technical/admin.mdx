@@ -1,0 +1,73 @@
+---
+layout: ../../../layouts/DocLayout.astro
+title: Admin Interface
+---
+import MermaidDiagram from '../../../components/MermaidDiagram.astro';
+
+# Admin Interface
+
+## Architecture Overview
+
+<MermaidDiagram code={`
+graph TB
+    A[Admin Portal] --> B[Core Modules]
+    B --> C[System Integration]
+    
+    subgraph "Admin Portal"
+    A1[Dashboard]
+    A2[User Management]
+    A3[System Config]
+    end
+    
+    subgraph "Core Modules"
+    B1[Analytics]
+    B2[Reporting]
+    B3[Audit Logs]
+    end
+    
+    subgraph "Integration"
+    C1[API Services]
+    C2[Data Access]
+    C3[Security]
+    end
+`} />
+
+## Key Features
+
+### Dashboard
+- Real-time system metrics
+- User activity monitoring
+- Resource utilization graphs
+- Alert notifications
+
+### User Management
+- Role-based access control
+- User provisioning
+- Permission management
+- Activity tracking
+
+### System Configuration
+- Environment settings
+- Feature toggles
+- Integration parameters
+- Security policies
+
+## Technical Stack
+
+1. **Frontend**
+   - React with TypeScript
+   - Material UI components
+   - Redux state management
+   - Real-time WebSocket updates
+
+2. **Data Visualization**
+   - Interactive charts
+   - Custom dashboards
+   - Export capabilities
+   - Real-time updates
+
+3. **Security Features**
+   - Role-based authorization
+   - Audit logging
+   - Session management
+   - Two-factor authentication

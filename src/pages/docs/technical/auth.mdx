@@ -1,0 +1,61 @@
+---
+layout: ../../../layouts/DocLayout.astro
+title: Authentication System
+---
+import MermaidDiagram from '../../../components/MermaidDiagram.astro';
+
+# Authentication System
+
+## Architecture Overview
+
+<MermaidDiagram code={`
+graph TB
+    A[Client] --> B[Auth Service]
+    B --> C[Token Management]
+    C --> D[User Session]
+    
+    subgraph "Authentication Flow"
+    B1[Login Request]
+    B2[Validation]
+    B3[Token Generation]
+    end
+    
+    subgraph "Session Management"
+    C1[JWT Tokens]
+    C2[Refresh Logic]
+    C3[Expiration]
+    end
+`} />
+
+## Implementation Details
+
+### Authentication Flow
+- Password-based authentication
+- JWT token generation
+- Secure session management
+- HTTP-only cookie storage
+
+### Security Measures
+- Password hashing with bcrypt
+- Rate limiting on login attempts
+- Secure cookie configuration
+- HTTPS-only communication
+
+### Session Management
+- 8-hour token expiration
+- Automatic token validation
+- Secure token storage
+- Session invalidation
+
+## API Endpoints
+
+### Login
+- POST `/login`
+- Validates credentials
+- Returns HTTP-only session cookie
+- Implements rate limiting
+
+### Session Validation
+- Automatic token verification
+- Secure middleware implementation
+- Protected route handling

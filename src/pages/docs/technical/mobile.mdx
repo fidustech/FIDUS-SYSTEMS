@@ -1,0 +1,63 @@
+---
+layout: ../../../layouts/DocLayout.astro
+title: Mobile Applications
+---
+import MermaidDiagram from '../../../components/MermaidDiagram.astro';
+
+# Mobile Applications
+
+## Architecture Overview
+
+<MermaidDiagram code={`
+graph TB
+    A[Mobile Apps] --> B[Core Features]
+    B --> C[Backend Integration]
+    
+    subgraph "Mobile Apps"
+    A1[iOS Native]
+    A2[Android Native]
+    end
+    
+    subgraph "Core Features"
+    B1[Authentication]
+    B2[Offline Support]
+    B3[Push Notifications]
+    end
+    
+    subgraph "Backend"
+    C1[REST API]
+    C2[Real-time Updates]
+    C3[File Storage]
+    end
+`} />
+
+## Platform Support
+
+### iOS Application
+- Swift UI for modern interface
+- Native iOS components
+- Apple Push Notifications
+- Biometric authentication
+
+### Android Application
+- Kotlin with Jetpack Compose
+- Material Design 3
+- Firebase Cloud Messaging
+- Fingerprint/Face authentication
+
+## Core Features
+
+1. **Authentication**
+   - Secure token management
+   - Biometric authentication
+   - Session handling
+
+2. **Offline Support**
+   - Local data persistence
+   - Background sync
+   - Conflict resolution
+
+3. **Push Notifications**
+   - Real-time alerts
+   - Silent updates
+   - Deep linking support

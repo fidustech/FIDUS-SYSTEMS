@@ -1,0 +1,43 @@
+---
+const sections = [
+  {
+    title: 'System Architecture',
+    items: [
+      { href: '/docs/architecture/overview', text: 'Three-Layer Architecture' },
+      { href: '/docs/architecture/security', text: 'Security Protocols' }
+    ]
+  },
+  {
+    title: 'Technical Documentation',
+    items: [
+      { href: '/docs/technical/mobile', text: 'Mobile Applications' },
+      { href: '/docs/technical/admin', text: 'Admin Interface' },
+      { href: '/docs/technical/auth', text: 'Authentication' }
+    ]
+  }
+];
+---
+
+<nav class="w-64 bg-white border-r border-gray-200 p-4 overflow-y-auto">
+  <div class="space-y-6">
+    {sections.map(section => (
+      <div>
+        <h2 class="text-sm font-semibold text-gray-600 uppercase tracking-wider">
+          {section.title}
+        </h2>
+        <ul class="mt-2 space-y-2">
+          {section.items.map(item => (
+            <li>
+              <a
+                href={item.href}
+                class="text-gray-600 hover:text-gray-900 hover:bg-gray-50 block px-2 py-1 rounded"
+              >
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</nav>

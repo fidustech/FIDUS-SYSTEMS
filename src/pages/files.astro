@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FileUpload from '../components/FileUpload.astro';
+import FileList from '../components/FileList.astro';
+import { readdir, mkdir } from 'node:fs/promises';
+import { UPLOAD_DIR } from '../utils/constants';
+
+// Ensure upload directory exists
+try {
+  await mkdir(UPLOAD_DIR, { recursive: true });
+} catch (error) {
+  console.error('Error creating uploads directory:', error);
+}
+
+// Read directory contents
+let files: string[] = [];
+try {
+  files = await readdir(UPLOAD_DIR);
+} catch (error) {
+  console.error('Error reading uploads directory:', error);
+}
+---
+
+<Layout title="Document Repository">
+  <Header />
+  <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <div class="space-y-8">
+      <div>
+        <h1 class="text-2xl font-semibold text-gray-900">Document Repository</h1>
+        <p class="mt-2 text-sm text-gray-600">Manage and access system documentation and resources.</p>
+      </div>
+      
+      <div class="grid gap-8 md:grid-cols-2">
+        <FileUpload />
+        <FileList files={files} />
+      </div>
+    </div>
+  </div>
+</Layout>

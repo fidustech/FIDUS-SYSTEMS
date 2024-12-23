@@ -1,0 +1,49 @@
+---
+layout: ../../../layouts/DocLayout.astro
+title: Three-Layer Architecture Overview
+---
+import MermaidDiagram from '../../../components/MermaidDiagram.astro';
+
+# FIDUS GROUP System Architecture
+
+## Three-Layer Architecture
+
+The FIDUS GROUP system implements a robust three-layer architecture that ensures separation of concerns and maintainable code structure.
+
+<MermaidDiagram code={`
+graph TB
+    A[Client Layer] --> B[Service Layer]
+    B --> C[Infrastructure Layer]
+    
+    subgraph Client
+    A1[Mobile Apps]
+    A2[Web Admin]
+    end
+    
+    subgraph Service
+    B1[API Gateway]
+    B2[Business Logic]
+    B3[Auth Service]
+    end
+    
+    subgraph Infrastructure
+    C1[Database]
+    C2[Storage]
+    C3[Monitoring]
+    end
+`} />
+
+### Client Layer
+- iOS and Android mobile applications
+- Web-based administrative interface
+- Cross-platform compatibility
+
+### Service Layer
+- RESTful API Gateway
+- Business Logic Implementation
+- Authentication & Authorization
+
+### Infrastructure Layer
+- Database Management
+- File Storage
+- Monitoring & Logging

@@ -1,0 +1,20 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import { isAuthenticated } from '../utils/auth';
+
+// Check authentication
+const authenticated = await isAuthenticated(Astro.request);
+if (!authenticated) {
+  return Astro.redirect('/login?redirect=' + encodeURIComponent(Astro.url.pathname));
+}
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="min-h-screen bg-gray-50">
+    <slot />
+  </div>
+</Layout>
