@@ -1,0 +1,3 @@
+# Redirects for API Proxying
+/api/* https://fidus-systems-backend.onrender.com/api/:splat 200
+/* /index.html 200
