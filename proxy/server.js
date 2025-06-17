@@ -1,7 +1,8 @@
-const cors = require('cors');
-app.use(cors());
 const express = require('express');
+const cors = require('cors');
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 // Minimal test endpoint for diagnostics
