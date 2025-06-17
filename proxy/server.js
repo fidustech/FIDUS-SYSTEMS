@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+// Minimal test endpoint for diagnostics
+app.get('/api/test', (req, res) => res.json({ status: 'test ok' }));
+
 // Example API endpoint: /api/dashboard
 app.get('/api/dashboard', (req, res) => {
   res.json({
@@ -20,7 +23,7 @@ app.get('/api/dashboard', (req, res) => {
   });
 });
 
-// Health check endpoint (optional but recommended)
+// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
