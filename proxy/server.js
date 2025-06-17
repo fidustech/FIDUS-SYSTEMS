@@ -17,7 +17,7 @@ app.get('/api/dashboard', (req, res) => {
   res.json({
     status: "success",
     timestamp: new Date().toISOString(),
-     {
+    data: { // Added 'data' key here
       fundOverview: {
         totalFundValue: 1910082695,
         totalUsers: 37,
@@ -71,7 +71,7 @@ app.get('/api/dashboard', (req, res) => {
         jurisdictions: ["Estonia", "United Kingdom", "British Virgin Islands", "Brazil"],
         lastAudit: "2024-11-25", nextAudit: "2025-01-15"
       }
-    },
+    }, // End of 'data' object
     meta: {
       version: "2.1.4",
       source: "Fiddux Fund Trading Management Platform",
