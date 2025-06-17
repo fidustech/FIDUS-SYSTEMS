@@ -13,20 +13,22 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
 
-// Define specific API routes BEFORE any catch-all or static file routes.
+// Define the /api/health route first to ensure it's not intercepted
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+// Root route for general health checks or basic access
 app.get('/', (req, res) => {
   res.send('OK');
 });
 
+// Dashboard API route
 app.get('/api/dashboard', (req, res) => {
   res.json({
     status: "success",
     timestamp: new Date().toISOString(),
-    data: {
+    data: { // This 'data' key was added to fix the SyntaxError
       fundOverview: {
         totalFundValue: 1910082695,
         totalUsers: 37,
@@ -93,6 +95,7 @@ app.get('/api/dashboard', (req, res) => {
     }
   });
 });
+
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, '0.0.0.0', () => {
