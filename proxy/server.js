@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// CORS configuration: allow all origins, GET/OPTIONS methods, and common headers
+// CORS configuration
 const corsOptions = {
   origin: '*',
   methods: ['GET', 'OPTIONS'],
