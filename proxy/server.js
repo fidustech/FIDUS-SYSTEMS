@@ -13,7 +13,11 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
 
-// Added root route for health checks as per the document's recommendation
+// Define specific API routes BEFORE any catch-all or static file routes.
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 app.get('/', (req, res) => {
   res.send('OK');
 });
@@ -22,7 +26,7 @@ app.get('/api/dashboard', (req, res) => {
   res.json({
     status: "success",
     timestamp: new Date().toISOString(),
-    data: { // This 'data' key was added in the previous correction
+    data: {
       fundOverview: {
         totalFundValue: 1910082695,
         totalUsers: 37,
@@ -88,10 +92,6 @@ app.get('/api/dashboard', (req, res) => {
       }
     }
   });
-});
-
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
 });
 
 const PORT = process.env.PORT || 10000;
