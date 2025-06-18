@@ -1,8 +1,0 @@
-# Specific API Proxy for health endpoint
-/api/health https://fiddux-systems-backend.onrender.com/api/health 200
-
-# General API Proxy for other /api routes (more specific rules first)
-/api/* https://fiddux-systems-backend.onrender.com/api/:splat 200
-
-# Frontend SPA Fallback (should be last)
-/* /index.html 200
